@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+</head>
+<body>
+
+    <header>
+
+        <section id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <section class="carousel-inner">
+                <section class="item active">
+                    <img class="img-responsive" src="~/images/foto1.jpg">
+                </section>
+                <section class="item">
+                    <img class="img-responsive" src="~/images/foto2.jpg">
+                </section>
+                <section class="item">
+                    <img class="img-responsive" src="~/images/foto3.jpg">
+                </section>
+            </section>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Antes</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Despues</span>
+            </a>
+        </section>
+        <section>
+            <nav class="menu">
+                <ul>
+                    <li>@Html.ActionLink("Principal", "Index", "Campeonato")</li>
+                    <li>
+                        Equipo
+                        <ul>
+                            <li>@Html.ActionLink("Listado de Equipos", "listadoEquipoxPag", "Campeonato")</li>
+                            <li>@Html.ActionLink("Registro de Equipo", "nuevoEquipo", "Campeonato")</li>
+                            <li>@Html.ActionLink("Consulta de Equipos", "listadoEquipoxLocalidadxDistrito", "Campeonato")</li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+    </header>
+    @RenderBody()
+    <footer>
+        <h5>&copy @DateTime.Now.Year - Todos los Derechos Reservados</h5>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<T5AN_Campeonato.Models.Equipo>
+
+@{
+    ViewBag.Title = "listadoEquipoxPag";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2>Listado de Equipos</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.localidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fundacion)
+        </th>
+        <th>OPCIONES</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.distrito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.localidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fundacion)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "modificaEquipo", new { id = item.codigo }, new { @class = "btn-mantenimiento glyphicon glyphicon-edit" }) |
+            @Html.ActionLink(" ", "detalleEquipo", new { id = item.codigo }, new { @class = "btn-mantenimiento glyphicon glyphicon-eye-open" }) |
+            @Html.ActionLink(" ", "eliminaEquipo", new { id = item.codigo }, new { @class = "btn-mantenimiento glyphicon glyphicon-trash" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h4>
+    @for (int i = 0; i < (int)ViewBag.pag; i++)
+    {
+        @Html.ActionLink((i + 1).ToString(), "listadoEquipoxPag", new { p = i }, new { @class = "btn-paginado btn-warning" })
+    }
+</h4>
+
+<script>
+
+    if ('@ViewBag.mensaje' != "") {
+        swal('@ViewBag.mensaje', "Presione el botón para continuar", "success")
+    }
+</script>

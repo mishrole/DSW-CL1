@@ -1,0 +1,83 @@
+﻿@model IEnumerable<T5AN_Campeonato.Models.Consulta>
+
+@{
+    ViewBag.Title = "listadoEquipoxLocalidadxDistrito";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2>Consulta Equipos por Localidad y Distrito</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal form-consulta">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="localidad">LOCALIDAD</label>
+            <div class="col-md-6">
+                @Html.TextBox("localidad", null, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="distrito">DISTRITO</label>
+            <div class="col-md-6">
+                @Html.DropDownList("distrito", (SelectList)ViewBag.distritos, "Seleccione distrito", new { @class = "form-control" })
+            </div>
+            <input type="submit" value="Buscar" class="btn btn-primary" />
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.localidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.años)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distrito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.localidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.años)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink(" Regresar", "listadoEquipoxPag", new { }, new { @class = "btn-mantenimiento glyphicon glyphicon-arrow-left" })
+</div>

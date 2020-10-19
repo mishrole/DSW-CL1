@@ -1,0 +1,64 @@
+﻿@model IEnumerable<T5AN_Campeonato.Models.Equipo>
+
+@{
+    ViewBag.Title = "listadoEquipo";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2>Listado de Equipos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codigo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.distrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.localidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fundacion)
+        </th>
+        <th>OPCIONES</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codigo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.distrito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.localidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fundacion)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "modificaEquipo", new { id = item.codigo }, new { @class = "btn-mantenimiento glyphicon glyphicon-edit" }) |
+            @Html.ActionLink(" ", "detalleEquipo", new { id = item.codigo }, new { @class = "btn-mantenimiento glyphicon glyphicon-eye-open" }) |
+            @Html.ActionLink(" ", "eliminaEquipo", new { id = item.codigo }, new { @class = "btn-mantenimiento glyphicon glyphicon-trash" })
+        </td>
+    </tr>
+}
+
+</table>

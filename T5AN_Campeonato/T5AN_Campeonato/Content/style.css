@@ -1,0 +1,91 @@
+﻿body {
+    font-family: Tahoma;
+    width: 90%;
+    margin: 0 auto;
+}
+
+h2, h4, h5, h6 {
+    text-align: center;
+}
+
+.menu {
+    position: absolute;
+    top: 0px;
+    width: 90%;
+    height: 50px;
+    display: block;
+    color: white;
+    background-color: #0275d8;
+}
+
+.menu ul {
+    display: flex;
+    margin: auto;
+    padding-top: 5px;
+}
+
+.menu li {
+    list-style: none;
+    padding: 10px 20px;
+}
+
+.menu li:hover {
+    background-color: #3490df;
+    cursor: pointer;
+}
+
+.menu ul li ul {
+    flex-direction: column;
+    position: absolute;
+    background-color: black;
+    margin-top: 15px;
+    transform: rotateY(240deg) scale(0);
+    transition: all 1s;
+}
+
+.menu ul li:hover > ul {
+    transform: rotateY(0deg) scale(1);
+    transition: all 1s;
+    background-color: #0275d8;
+}
+
+a {
+    color: white;
+}
+
+.btn-paginado {
+    padding: 0.5rem 1rem;
+    margin: 0 5px;
+}
+
+.btn-mantenimiento {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+.btn-mantenimiento:hover {
+    color: #3490df;
+}
+
+/*Pie de Pagina*/
+footer {
+    background-color: #0275d8;
+    padding: 0px;
+    bottom: 0px;
+    width: auto;
+    height: 25px;
+    color: white;
+    margin-top: 30px;
+}
+
+.carousel-inner {
+    height: 25vw;
+}
+
+table, th {
+    text-align: center !important;
+}
+
+.form-consulta {
+    margin-bottom: 30px;
+}

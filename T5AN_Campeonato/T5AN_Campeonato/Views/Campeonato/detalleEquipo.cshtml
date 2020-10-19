@@ -1,0 +1,65 @@
+﻿@model T5AN_Campeonato.Models.Equipo
+
+@{
+    ViewBag.Title = "detalleEquipo";
+    Layout = "~/Views/Shared/_LayoutPrincipal.cshtml";
+}
+
+<h2>Detalle de Equipo</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codigo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codigo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.localidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.localidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fundacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fundacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(" Regresar", "listadoEquipoxPag", new { }, new { @class = "btn-mantenimiento glyphicon glyphicon-arrow-left" })
+</p>
